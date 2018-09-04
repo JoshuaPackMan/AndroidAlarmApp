@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewAlarmSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Alarm set"
+        android:textSize="30sp"/>
+    <Button
+        android:id="@+id/button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancel alarm"/>
+    <EditText
+        android:id="@+id/edittext_title"
+        android:hint="Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/edittext_message"
+        android:hint="Message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/button_channel1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="send on channel1"/>
+
+    <Button
+        android:id="@+id/button_channel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="send on channel2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PlayGMusic"
+        android:onClick="playGMusic"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PauseGMusic"
+        android:onClick="pauseGMusic"/>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="time"
+        android:textSize="30sp"/>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="open time picker" />
+
+
+</android.support.v7.widget.LinearLayoutCompat>
