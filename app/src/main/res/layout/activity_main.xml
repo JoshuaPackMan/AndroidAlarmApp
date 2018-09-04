@@ -38,12 +38,6 @@
         android:text="send on channel1"/>
 
     <Button
-        android:id="@+id/button_channel2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="send on channel2"/>
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="PlayGMusic"
