@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,55 +10,73 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/howItWorksP1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/how_it_worksP1"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/howItWorksP2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/howItWorksP2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/how_it_worksP2"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/howItWorksP3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/howItWorksP3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/how_it_worksP3"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewAlarmSet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/textViewAlarmSet"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No Alarm set"
-        android:textSize="30sp"/>
+        android:layout_marginBottom="25dp"
+        android:text="@string/no_alarm"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_set"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/Set_alarm"
+        app:layout_constraintBottom_toTopOf="@+id/button_cancel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/button_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="cancel alarm"/>
-    <EditText
-        android:id="@+id/edittext_title"
-        android:hint="Title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <EditText
-        android:id="@+id/edittext_message"
-        android:hint="Message"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/button_channel1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="send on channel1"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PlayGMusic"
-        android:onClick="playGMusic"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PauseGMusic"
-        android:onClick="pauseGMusic"/>
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="time"
-        android:textSize="30sp"/>
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="open time picker" />
+        android:layout_marginBottom="130dp"
+        android:text="@string/Cancel_alarm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
-</android.support.v7.widget.LinearLayoutCompat>
+</android.support.constraint.ConstraintLayout>

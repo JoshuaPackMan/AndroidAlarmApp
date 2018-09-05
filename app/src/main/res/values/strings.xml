@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">AlarmApp</string>
+    <string name="app_name">Google Play Music Alarm</string>
+    <string name="Set_alarm">Set an alarm</string>
+    <string name="Cancel_alarm">Cancel alarm</string>
+    <string name="no_alarm">No alarm set</string>
+    <string name="how_it_worksP1">1. Set your alarm by clicking the button below.</string>
+    <string name="how_it_worksP2">2. Open the Google Play Music app. Play and then pause the song at the position
+    you want the alarm to start playing the music at.</string>
+    <string name="how_it_worksP3">3. Lock your screen and go to bed. Do not open another
+    app before the alarm goes off or the alarm will not work.</string>
+
 </resources>

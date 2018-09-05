@@ -1,6 +1,7 @@
 package com.joshuapack1gmail.alarmapp;
 
 import android.app.AlarmManager;
+import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -22,11 +23,6 @@ import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
     private TextView mTextView;
-    private EditText editTextTitle;
-    private EditText editTextMessage;
-    private Button buttonChannel1;
-    private Button buttonChannel2;
-
     private NotificationHelper mNotificationHelper;
 
     @Override
@@ -35,11 +31,6 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         setContentView(R.layout.activity_main);
 
         mTextView = findViewById(R.id.textViewAlarmSet);
-
-        editTextTitle = findViewById(R.id.edittext_title);
-        editTextMessage = findViewById(R.id.edittext_message);
-        buttonChannel1 = findViewById(R.id.button_channel1);
-        buttonChannel2 = findViewById(R.id.button_channel2);
 
         mNotificationHelper = new NotificationHelper(this);
 
@@ -51,21 +42,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
             }
         });
 
-        buttonChannel1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendOnChannel1(editTextTitle.getText().toString(), editTextMessage.getText().toString());
-            }
-        });
-
-        buttonChannel2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendOnChannel2(editTextTitle.getText().toString(), editTextMessage.getText().toString());
-            }
-        });
-
-        Button button = findViewById(R.id.button);
+        Button button = findViewById(R.id.button_set);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         });
     }
 
+
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         Calendar c = Calendar.getInstance();
@@ -82,53 +60,12 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
         c.set(Calendar.MINUTE, minute);
         c.set(Calendar.SECOND, 0);
 
-        updateTimeText(c);
-        startAlarm(c);
-
-        TextView textView = findViewById(R.id.textView);
-
-        //hourOfDay comes in 24hr format, so this adjusts it to 12hr format
-        //also determines AM, PM or neither if in 24hr format
-        int hourAdjustment = 0;
-        String amOrpm = "";
-
-        if(!DateFormat.is24HourFormat(this)){
-            if(hourOfDay>12){
-                hourAdjustment = 12;
-                amOrpm = "pm";
-            } else if(hourOfDay == 12){
-                amOrpm = "pm";
-            } else if(hourOfDay == 0){
-                hourAdjustment = -12;
-                amOrpm = "am";
-            } else{
-                amOrpm = "am";
-            }
+        if(c.before(Calendar.getInstance())) {
+            c.add(Calendar.DATE, 1);
         }
 
-        textView.setText("Hour: " + (hourOfDay-hourAdjustment) + " Minute: " + minute + " " + amOrpm);
-    }
-
-    public void sendOnChannel1(String title, String message){
-        NotificationCompat.Builder nb = mNotificationHelper.getChannel1Notification(title, message);
-        mNotificationHelper.getManager().notify(1,nb.build());
-    }
-
-    public void sendOnChannel2(String title, String message){
-        NotificationCompat.Builder nb = mNotificationHelper.getChannel2Notification(title, message);
-        mNotificationHelper.getManager().notify(2,nb.build());
-    }
-
-    public void playGMusic(View v){
-        Intent intent = new Intent("com.android.music.musicservicecommand");
-        intent.putExtra("command", "play");
-        sendBroadcast(intent);
-    }
-
-    public void pauseGMusic(View v){
-        Intent intent = new Intent("com.android.music.musicservicecommand");
-        intent.putExtra("command", "pause");
-        sendBroadcast(intent);
+        updateTimeText(c);
+        startAlarm(c);
     }
 
     private void updateTimeText(Calendar c){
