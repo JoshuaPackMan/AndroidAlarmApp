@@ -6,4 +6,4 @@ out a general signal to your device to play whatever music is available. That is
 it broadcasts an intent that asks the device to play music when the alarm goes off. In order for this to work you need to
 set the alarm using the button and timepicker in the app, then you need to open the Google Play Music app. Play and then pause 
 the song at the position you want the alarm to start playing the music at. Then lock your screen and go to bed. Do not open another
-app before the alarm goes off or the alarm will not work.
+app before the alarm goes off or the alarm will not work (i.e. Google Play music needs to be open when you lock your screen and go to sleep).
